@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Book | Linked Lists Implementation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Book</h1>
+        <p class="subtitle">Implementing Linked List Data Structure</p>
+
+        <!-- Add contact Form -->
+         <div class="form-card">
+            <h2>Add New Contact</h2>
+
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Full Name" maxlength="50">
+                <input type="tel" id="phone" placeholder="Phone Number" maxlength="15">
+                <input type="email" id="email" placeholder="Email Address">
+                <button onclick="addContact()">Add Contact</button>
+            </div>
+         </div>
+
+         <!-- Search & Action Bar -->
+          <div class="action-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name or phone ...">
+            <button onclick="searchContacts()">Search</button>
+            <button onclick="clearSearch()">Clear</button>
+            </div>
+            
+            <div class="action-buttons">
+                <button onclick="displayAllContacts()">Show All</button>
+                <button onclick="reverseList()">Reverse List</button>
+                <button onclick="exportToJSON()">Export JSON</button>
+                <button onclick="importFromJSON()">Import JSON</button>
+                <button onclick="clearAllContacts()">Clear All</button>
+          </div>
+        </div>
+
+        <!-- Statistics Panel -->
+         <div class="stats-panel">
+            <div class="stat-card">
+                <div class="stat-icon"></div>
+                <div class="stat-info">
+                    <div class="stat-label">Total Contacts</div>
+                    <div class="stat-value" id="totalContacts">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"></div>
+                <div class="stat-info">
+                    <div class="stat-label">List Size</div>
+                    <div class="stat-value" id="listSize">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"></div>
+                <div class="stat-info">
+                    <div class="stat-label">Last Operation</div>
+                    <div class="stat-value" id="lastOperation">Ready</div>
+                </div>
+            </div>
+         </div>
+
+         <!-- Contacts Display -->
+          <div class="contacts-container">
+            <h2>Contact List (Linked List Visualization)</h2>
+            <div id="linkedListVisualization" class="linked-list-viz"></div>
+            <div id="contactsList" class="contacts-grid"></div>
+          </div>
+
+          <!-- Message Area -->
+           <div class="message" id="message"></div>
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

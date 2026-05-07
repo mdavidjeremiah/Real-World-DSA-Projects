@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Record System</h1>
+
+        <div class="form-group">
+            <input type="text" id="rollNo" placeholder="Roll Number(e.g., CS101)" maxlength="20">
+            <input type="text" id="name" placeholder="Name" maxlength="50">
+            <input type="number" id="marks" placeholder="Marks (0-100)" min="0" max="100">
+            <button onclick="addStudent()">Add Student</button>
+        </div>
+
+        <div class="actions">
+            <input type="text" id="searchRoll" placeholder="Search by Roll No">
+            <button onclick="searchStudent()">Search</button>
+            <button onclick="viewAll()">View All</button>
+            <button onclick="clearForm()">Clear Form</button>
+        </div>
+
+        <div class="actions">
+            <button onclick="sortByMarks()">Sort by Marks</button>
+            <button onclick="sortByName()">Sort by Name</button>
+            <button onclick="exportToCSV()">Export to CSV</button>
+            <button onclick="saveToLocalStorage()">Save to Browser</button>
+            <button onclick="loadFromLocalStorage()">Load from Browser</button>
+            <button onclick="clearAllRecords()">Clear All Records</button>
+        </div>
+
+        <div class="stats-panel" id="statsPanel">
+            <h3>Quick Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Students</div>
+                    <div class="stat-value" id="totalStudents">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Marks</div>
+                    <div class="stat-value" id="avgMarks">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Highest Marks</div>
+                    <div class="stat-value" id="highestMarks">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Lowest Marks</div>
+                    <div class="stat-value" id="lowestMarks">0</div>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="table-container">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

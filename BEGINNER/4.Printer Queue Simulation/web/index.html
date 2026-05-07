@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖨️ Printer Queue Simulator - FIFO Queue Implementation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖨️ Printer Queue Simulator</h1>
+            <p class="subtitle">Implementing FIFO Queue Data Structure</p>
+        </header>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="job-form">
+                <h3>📄 Submit New Print Job</h3>
+                <div class="form-group">
+                    <input type="text" id="docName" placeholder="Document Name" maxlength="50">
+                    <input type="number" id="pages" placeholder="Pages (1-500)" min="1" max="500" value="5">
+                    <input type="text" id="userName" placeholder="User Name" maxlength="30">
+                    <button onclick="submitJob()" class="btn-primary">➕ Submit Job</button>
+                </div>
+            </div>
+
+            <div class="simulation-controls">
+                <h3>🎮 Simulation Controls</h3>
+                <div class="button-group">
+                    <button onclick="startSimulation()" id="startBtn" class="btn-success">▶ Start Simulation</button>
+                    <button onclick="stopSimulation()" id="stopBtn" class="btn-danger" disabled>⏸ Stop</button>
+                    <button onclick="processOneSecond()" id="stepBtn" class="btn-info">⏩ Process 1 Second</button>
+                    <button onclick="clearQueue()" class="btn-warning">🗑️ Clear Queue</button>
+                    <button onclick="resetSystem()" class="btn-secondary">🔄 Reset System</button>
+                </div>
+                <div class="simulation-speed">
+                    <label>Simulation Speed:</label>
+                    <input type="range" id="speed" min="0.5" max="3" step="0.1" value="1">
+                    <span id="speedValue">1x</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Dashboard -->
+        <div class="stats-dashboard">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <div class="stat-label">Total Jobs</div>
+                    <div class="stat-value" id="totalJobs">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <div class="stat-label">Completed</div>
+                    <div class="stat-value" id="completedJobs">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-info">
+                    <div class="stat-label">In Queue</div>
+                    <div class="stat-value" id="queueSize">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🖨️</div>
+                <div class="stat-info">
+                    <div class="stat-label">Pages Printed</div>
+                    <div class="stat-value" id="totalPages">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-info">
+                    <div class="stat-label">Avg Wait Time</div>
+                    <div class="stat-value" id="avgWaitTime">0s</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-info">
+                    <div class="stat-label">Success Rate</div>
+                    <div class="stat-value" id="successRate">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Printers Section -->
+        <div class="printers-section">
+            <h2>🖨️ Active Printers</h2>
+            <div class="printers-grid" id="printersGrid"></div>
+        </div>
+
+        <!-- Queue Visualization -->
+        <div class="queue-section">
+            <h2>📋 Print Queue (FIFO)</h2>
+            <div class="queue-visualization" id="queueVisualization">
+                <div class="empty-queue">No jobs in queue</div>
+            </div>
+        </div>
+
+        <!-- Completed Jobs History -->
+        <div class="history-section">
+            <h2>✅ Completed Jobs History</h2>
+            <div class="history-list" id="historyList">
+                <div class="empty-history">No jobs completed yet</div>
+            </div>
+        </div>
+
+        <!-- Message Area -->
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
